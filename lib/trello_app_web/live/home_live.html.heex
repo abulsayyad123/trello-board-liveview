@@ -1,0 +1,31 @@
+<div class="board" id="trello-board" phx-hook="TrelloBoard">
+  <ul class="list" id="planning">
+    <div class="list-header"> Planning </div>
+    <%= for task <- @tasks["planning"] || [] do %>
+      <li class="card" data-task-id={"#{task.id}"}>
+        <a href><%= task.title %></a>
+          <i><%= task.user.first_name %> <%= task.user.last_name %></i>
+      </li>
+    <% end %>
+  </ul>
+
+  <ul class="list" id="progress">
+    <div class="list-header"> In Progress </div>
+    <%= for task <- @tasks["progress"] || [] do %>
+      <li class="card" data-task-id={"#{task.id}"}>
+        <a href><%= task.title %></a>
+          <i><%= task.user.first_name %> <%= task.user.last_name %></i>
+      </li>
+    <% end %>
+  </ul>
+
+  <ul class="list" id="completed">
+    <div class="list-header"> In Progress </div>
+    <%= for task <- @tasks["completed"] || [] do %>
+      <li class="card" data-task-id={"#{task.id}"}>
+        <a href><%= task.title %></a>
+        <i><%= task.user.first_name %> <%= task.user.last_name %></i>
+      </li>
+    <% end %>
+  </ul>
+</div>
